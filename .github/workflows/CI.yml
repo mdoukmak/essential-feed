@@ -14,6 +14,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+    - name: find xcode
+      run:  ls -n /Applications/ | grep Xcode*
     - name: Select Xcode
       run: sudo xcode-select -switch  /Applications/Xcode_15.0.1.app
 
