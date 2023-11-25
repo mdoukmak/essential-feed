@@ -10,12 +10,14 @@ import Foundation
 import XCTest
 
 extension Date {
-    func adding(days: Int) -> Date {
-        return Calendar(identifier: .gregorian).date(byAdding: .day, value: days, to: self)!
-    }
-
     func adding(seconds: Int) -> Date {
         return Calendar(identifier: .gregorian).date(byAdding: .second, value: seconds, to: self)!
+    }
+}
+
+extension Date {
+    private func adding(days: Int) -> Date {
+        return Calendar(identifier: .gregorian).date(byAdding: .day, value: days, to: self)!
     }
 
     func minusFeedCacheMaxAge() -> Date {
