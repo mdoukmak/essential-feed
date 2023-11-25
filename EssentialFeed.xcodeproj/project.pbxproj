@@ -21,6 +21,7 @@
 		878EF91A2B112E80007D3A77 /* EssentialFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 875D2D9A2B10E3E0005A8A4F /* EssentialFeed.framework */; };
 		878EF9202B1130D5007D3A77 /* XCTTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878EF90D2B1121A7007D3A77 /* XCTTestCase+MemoryLeakTracking.swift */; };
 		878EF9272B117265007D3A77 /* CacheFeedUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878EF9262B117265007D3A77 /* CacheFeedUseCaseTests.swift */; };
+		878EF9292B1186F9007D3A77 /* LocalFeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878EF9282B1186F9007D3A77 /* LocalFeedLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		878EF9182B112E80007D3A77 /* EssentialFeedAPIEndToEndTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssentialFeedAPIEndToEndTests.swift; sourceTree = "<group>"; };
 		878EF9212B113139007D3A77 /* CI.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = CI.xctestplan; sourceTree = "<group>"; };
 		878EF9262B117265007D3A77 /* CacheFeedUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheFeedUseCaseTests.swift; sourceTree = "<group>"; };
+		878EF9282B1186F9007D3A77 /* LocalFeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFeedLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +178,7 @@
 		878EF9242B117246007D3A77 /* Feed Cache */ = {
 			isa = PBXGroup;
 			children = (
+				878EF9282B1186F9007D3A77 /* LocalFeedLoader.swift */,
 			);
 			path = "Feed Cache";
 			sourceTree = "<group>";
@@ -330,6 +333,7 @@
 				878EF9082B110BA7007D3A77 /* FeedItemsMapper.swift in Sources */,
 				875D2DB52B10E44A005A8A4F /* FeedLoader.swift in Sources */,
 				875D2DBB2B10EDE2005A8A4F /* RemoteFeedLoader.swift in Sources */,
+				878EF9292B1186F9007D3A77 /* LocalFeedLoader.swift in Sources */,
 				878EF9062B110B60007D3A77 /* HTTPClient.swift in Sources */,
 				875D2DB32B10E3F4005A8A4F /* FeedItem.swift in Sources */,
 				878EF9102B112B58007D3A77 /* URLSessionHTTPClient.swift in Sources */,
