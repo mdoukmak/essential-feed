@@ -11,9 +11,11 @@ import Foundation
 final class FeedStoreSpy: FeedStore {
     typealias DeletionCompletion = (Error?) -> Void
     typealias InsertionCompletion = (Error?) -> Void
+    typealias RetrievalCompletion = (Error?) -> Void
 
     private var deletionCompletions: [DeletionCompletion] = []
     private var insertionCompletions: [InsertionCompletion] = []
+    private var retrievalCompletions: [RetrievalCompletion] = []
 
     private(set) var receivedMessages = [ReceivedMessage]()
 
@@ -23,8 +25,9 @@ final class FeedStoreSpy: FeedStore {
         case retrieve
     }
 
-    func retrieve() {
+    func retrieve(completion: @escaping (Error?) -> Void) {
         receivedMessages.append(.retrieve)
+        retrievalCompletions.append(completion)
     }
 
     func insert(_ feed: [LocalFeedImage], timestamp: Date, completion: @escaping (Error?) -> Void) {
@@ -51,5 +54,9 @@ final class FeedStoreSpy: FeedStore {
 
     func completeDeletionSuccessfully(at index: Int = 0) {
         deletionCompletions[index](nil)
+    }
+
+    func completeRetrieval(with error: Error, at index: Int = 0) {
+        retrievalCompletions[index](error)
     }
 }
