@@ -18,6 +18,12 @@ jobs:
       run:  ls -n /Applications/ | grep Xcode*
     - name: Select Xcode
       run: sudo xcode-select -switch  /Applications/Xcode_15.0.1.app
+    - name: Find simulators
+      run: |
+        ls -ltra /Library/Developer/CoreSimulator/Profiles/Runtimes
+        ls -ltra /Applications/Xcode_*
+        ls -ltra /Applications/Xcode_12.4.app/Contents/Developer/Platforms/iPhoneOS.platform/Library/Developer/CoreSimulator/Profiles/Runtimes/ 
+        ls -ltra /Library/Developer/CoreSimulator/Profiles/Runtimes/
 
     - name: Build-and-test
       run: |
