@@ -9,7 +9,10 @@
     }
   ],
   "defaultOptions" : {
-    "testExecutionOrdering" : "random"
+    "defaultTestExecutionTimeAllowance" : 60,
+    "maximumTestExecutionTimeAllowance" : 60,
+    "testExecutionOrdering" : "random",
+    "testTimeoutsEnabled" : true
   },
   "testTargets" : [
     {
