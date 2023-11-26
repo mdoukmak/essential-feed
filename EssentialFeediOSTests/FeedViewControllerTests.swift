@@ -46,59 +46,34 @@ final class FeedViewController: UITableViewController {
 }
 
 final class FeedViewControllerTests: XCTestCase {
-    func test_init_doesNotLoadFeed() {
-        let (_, loader) = makeSUT()
-
+    func test_loadFeedActions_requestFeedFromLoader() {
+        let (sut, loader) = makeSUT()
         XCTAssertEqual(loader.loadCallCount, 0)
-    }
-
-    func test_viewIsAppearing_loadsFeed() {
-        let (sut, loader) = makeSUT()
 
         sut.loadViewIfNeeded()
-
         XCTAssertEqual(loader.loadCallCount, 1)
-    }
-
-    func test_userInitiatedFeedReload_loadsFeed() {
-        let (sut, loader) = makeSUT()
-        sut.loadViewIfNeeded()
 
         sut.simulateUserInitiatedFeedReload()
-
         XCTAssertEqual(loader.loadCallCount, 2)
 
         sut.simulateUserInitiatedFeedReload()
-
         XCTAssertEqual(loader.loadCallCount, 3)
     }
 
-    func test_viewIsAppearing_showsLoadingIndicator() {
-        let (sut, _) = makeSUT()
-
-        sut.simulateAppearance()
-
-        XCTAssertEqual(sut.isShowingLoadingIndicator, true)
-    }
-
-    func test_viewIsAppearing_hidesLoadingIndicatorOnLoaderCompletion() {
+    func test_loadingFeedIndicator_isVisibleWhenLoadingFeed() {
         let (sut, loader) = makeSUT()
 
         sut.simulateAppearance()
-        loader.completeFeedLoading()
+        XCTAssertEqual(sut.isShowingLoadingIndicator, true)
 
+        loader.completeFeedLoading(at: 0)
         XCTAssertEqual(sut.isShowingLoadingIndicator, false)
-    }
-
-    func test_userInitiatedFeedReload_showsLoadingIndicator() {
-        let (sut, loader) = makeSUT()
-
-        sut.simulateAppearance()
-        XCTAssertEqual(sut.isShowingLoadingIndicator, true)
-        loader.completeFeedLoading()
 
         sut.simulateUserInitiatedFeedReload()
         XCTAssertEqual(sut.isShowingLoadingIndicator, true)
+
+        loader.completeFeedLoading(at: 1)
+        XCTAssertEqual(sut.isShowingLoadingIndicator, false)
     }
 
     class LoaderSpy: FeedLoader {
@@ -110,8 +85,8 @@ final class FeedViewControllerTests: XCTestCase {
             completions.append(completion)
         }
 
-        func completeFeedLoading() {
-            completions[0](.success([]))
+        func completeFeedLoading(at index: Int = 0) {
+            completions[index](.success([]))
         }
     }
 
