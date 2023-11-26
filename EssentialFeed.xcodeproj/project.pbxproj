@@ -49,6 +49,7 @@
 		878EF92F2B118E13007D3A77 /* LocalFeeditem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878EF92E2B118E13007D3A77 /* LocalFeeditem.swift */; };
 		878F34F52B12980E00C9168E /* EssentialFeediOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 878F34ED2B12980D00C9168E /* EssentialFeediOS.framework */; };
 		87D015A72B129DA300BE4DDF /* FeedViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D015A62B129DA300BE4DDF /* FeedViewControllerTests.swift */; };
+		87D015A92B12CC7600BE4DDF /* XCTTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878EF90D2B1121A7007D3A77 /* XCTTestCase+MemoryLeakTracking.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -671,6 +672,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87D015A92B12CC7600BE4DDF /* XCTTestCase+MemoryLeakTracking.swift in Sources */,
 				87D015A72B129DA300BE4DDF /* FeedViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

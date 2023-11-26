@@ -49,6 +49,8 @@ final class FeedViewControllerTests: XCTestCase {
     private func makeSUT() -> (sut: FeedViewController, loader: LoaderSpy) {
         let loader = LoaderSpy()
         let sut = FeedViewController(loader: loader)
+        trackForMemoryLeaks(sut)
+        trackForMemoryLeaks(loader)
         return (sut, loader)
     }
 }
