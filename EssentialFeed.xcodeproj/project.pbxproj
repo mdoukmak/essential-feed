@@ -121,7 +121,7 @@
 		878EF9112B112D3F007D3A77 /* EssentialFeed.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = EssentialFeed.xctestplan; sourceTree = "<group>"; };
 		878EF9162B112E80007D3A77 /* EssentialFeedAPIEndToEndTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentialFeedAPIEndToEndTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		878EF9182B112E80007D3A77 /* EssentialFeedAPIEndToEndTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssentialFeedAPIEndToEndTests.swift; sourceTree = "<group>"; };
-		878EF9212B113139007D3A77 /* CI.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = CI.xctestplan; sourceTree = "<group>"; };
+		878EF9212B113139007D3A77 /* CI_macOS.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = CI_macOS.xctestplan; sourceTree = "<group>"; };
 		878EF9262B117265007D3A77 /* CacheFeedUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheFeedUseCaseTests.swift; sourceTree = "<group>"; };
 		878EF9282B1186F9007D3A77 /* LocalFeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFeedLoader.swift; sourceTree = "<group>"; };
 		878EF92A2B118743007D3A77 /* FeedStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedStore.swift; sourceTree = "<group>"; };
@@ -134,6 +134,7 @@
 		87D015AA2B12D8B400BE4DDF /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		87D015AC2B12F7F300BE4DDF /* FeedImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageCell.swift; sourceTree = "<group>"; };
 		87D015AE2B13000C00BE4DDF /* UIView+Shimmering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Shimmering.swift"; sourceTree = "<group>"; };
+		87E0FA6C2B130CEA00567F8B /* CI_iOS.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = CI_iOS.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,7 +231,8 @@
 		875D2D902B10E3E0005A8A4F = {
 			isa = PBXGroup;
 			children = (
-				878EF9212B113139007D3A77 /* CI.xctestplan */,
+				878EF9212B113139007D3A77 /* CI_macOS.xctestplan */,
+				87E0FA6C2B130CEA00567F8B /* CI_iOS.xctestplan */,
 				875D2D9C2B10E3E0005A8A4F /* EssentialFeed */,
 				875D2DA62B10E3E0005A8A4F /* EssentialFeedTests */,
 				878EF9172B112E80007D3A77 /* EssentialFeedAPIEndToEndTests */,
