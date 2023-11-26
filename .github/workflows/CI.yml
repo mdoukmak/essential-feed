@@ -21,9 +21,7 @@ jobs:
     - name: Find simulators
       run: |
         sudo mkdir -p /Library/Developer/CoreSimulator/Profiles/Runtimes
-        ls -ltra /Applications/Xcode_*
-        ls -ltra /Applications/Xcode_14.3.1.app/Contents/Developer/Platforms/iPhoneOS.platform/Library/Developer/CoreSimulator/Profiles/Runtimes/ 
-        ls -ltra /Library/Developer/CoreSimulator/Profiles/Runtimes/
+        sudo ln -s /Applications/Xcode_14.3.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/CoreSimulator/Profiles/Runtimes/iOS.simruntime /Library/Developer/CoreSimulator/Profiles/Runtimes/iOS\ 16.4.simruntime
 
     - name: Build-and-test
       run: |
