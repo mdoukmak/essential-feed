@@ -387,6 +387,7 @@ private extension FeedViewController {
         beginAppearanceTransition(true, animated: false)
         endAppearanceTransition()
     }
+
     func replaceRefreshControlWithFakeForiOS17Support() {
         let fake = FakeRefreshControl()
 
