@@ -382,7 +382,7 @@ private extension FeedViewController {
     func simulateAppearance() {
         if !isViewLoaded {
             loadViewIfNeeded()
-//            replaceRefreshControlWithFakeForiOS17Support()
+            replaceRefreshControlWithFakeForiOS17Support()
         }
         beginAppearanceTransition(true, animated: false)
         endAppearanceTransition()
@@ -398,6 +398,7 @@ private extension FeedViewController {
         }
 
         refreshControl = fake
+        refreshController?.view = fake
     }
 }
 
