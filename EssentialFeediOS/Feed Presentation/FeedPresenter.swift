@@ -37,15 +37,24 @@ final class FeedPresenter {
     static var title: String { NSLocalizedString("FEED_VIEW_TITLE", tableName: "Feed", bundle: Bundle(for: FeedPresenter.self), comment: "Title for the Feed View") }
 
     func didStartLoadingFeed() {
+        guard Thread.isMainThread else {
+            return DispatchQueue.main.async { [weak self] in self?.didStartLoadingFeed() }
+        }
         loadingView.display(FeedLoadingViewModel(isLoading: true))
     }
 
     func didFinishLoadingFeed(with feed: [FeedImage]) {
+        guard Thread.isMainThread else {
+            return DispatchQueue.main.async { [weak self] in self?.didFinishLoadingFeed(with: feed) }
+        }
         feedView.display(FeedViewModel(feed: feed))
         loadingView.display(FeedLoadingViewModel(isLoading: false))
     }
 
     func didFinishLoading(with error: Error) {
+        guard Thread.isMainThread else {
+            return DispatchQueue.main.async { [weak self] in self?.didFinishLoading(with: error) }
+        }
         loadingView.display(FeedLoadingViewModel(isLoading: false))
     }
 }
