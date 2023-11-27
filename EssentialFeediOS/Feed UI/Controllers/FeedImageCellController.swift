@@ -40,7 +40,7 @@ final class FeedImageCellController: FeedImageView {
         cell?.locationLabel.text = viewModel.location
         cell?.descriptionLabel.text = viewModel.description
         cell?.onRetry = delegate.didRequestImage
-        cell?.feedImageView.image = viewModel.image
+        cell?.feedImageView.setImageAnimated(viewModel.image)
         cell?.feedImageContainer.isShimmering = viewModel.isLoading
         cell?.feedImageRetryButton.isHidden = !viewModel.shouldRetry
     }
@@ -50,3 +50,13 @@ final class FeedImageCellController: FeedImageView {
     }
 }
 
+extension UIImageView {
+    func setImageAnimated(_ newImage: UIImage?) {
+        image = newImage
+        guard newImage != nil else { return }
+        alpha = 0
+        UIView.animate(withDuration: 0.25) {
+            self.alpha = 1
+        }
+    }
+}
