@@ -15,8 +15,8 @@ final class FeedViewControllerTests: XCTestCase {
         let (sut, _) = makeSUT()
 
         sut.loadViewIfNeeded()
-
-        XCTAssertEqual(sut.title, "My Feed")
+        
+        XCTAssertEqual(sut.title, localized("FEED_VIEW_TITLE"))
     }
 
     func test_loadFeedActions_requestFeedFromLoader() {
@@ -323,6 +323,16 @@ final class FeedViewControllerTests: XCTestCase {
         trackForMemoryLeaks(sut, file: file, line: line)
         trackForMemoryLeaks(loader, file: file, line: line)
         return (sut, loader)
+    }
+
+    private func localized(_ key: String, file: StaticString = #file, line: UInt = #line) -> String {
+        let table = "Feed"
+        let bundle = Bundle(for: FeedViewController.self)
+        let value = bundle.localizedString(forKey: key, value: nil, table: table)
+        if value == key {
+            XCTFail("Missing localized string for key: \(key) in table: \(table)", file: file, line: line)
+        }
+        return value
     }
 
     private func makeImage(description: String? = nil, location: String? = nil, url: URL = URL(string: "http://any-url.com")!) -> FeedImage {
