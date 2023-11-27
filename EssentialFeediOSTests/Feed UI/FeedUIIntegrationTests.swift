@@ -265,6 +265,21 @@ final class FeedUIIntegrationTests: XCTestCase {
         XCTAssertNil(view?.renderedImage, "Expected no rendered image when an image load finishes after the view is not visible anymore")
     }
 
+    func test_loadFeedCompletion_dispatchesFromBackgroundToMainThread() {
+        let image0 = makeImage(url: URL(string: "http://url-0.com")!)
+        let (sut, loader) = makeSUT()
+
+        sut.loadViewIfNeeded()
+
+        let exp = expectation(description: "Wait for load")
+        DispatchQueue.global().async {
+            loader.completeFeedLoading(with: [image0], at: 0)
+            exp.fulfill()
+        }
+
+        wait(for: [exp], timeout: 1.0)
+    }
+
     // MARK: - Helpers
     private class LoaderSpy: FeedLoader, FeedImageDataLoader {
 
